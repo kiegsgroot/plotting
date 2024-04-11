@@ -6,13 +6,13 @@ from lets_plot import *
 
 class TitleSettings(BaseSettingsGroup):
     title: JustifiableLabel = Field(
-        title="Title",
+        alias="Title",
     )
     subtitle: JustifiableLabel = Field(
-        title="Subtitle",
+        alias="Subtitle",
     )
     caption: JustifiableLabel = Field(
-        title="Caption",
+        alias="Caption",
     )
 
     def apply(self, plot):
