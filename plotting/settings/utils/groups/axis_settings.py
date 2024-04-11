@@ -5,10 +5,10 @@ from lets_plot import *
 
 
 class AxisSettings(BaseSettingsGroup):
-    x_axis_label: Label = Field(
+    x_axis_label: Label = Field(...,
         title="X-Axis Label",
     )
-    y_axis_label: Label = Field(
+    y_axis_label: Label = Field(...,
         title="Y-Axis Label",
     )
     y_axis_log2: bool = Field(
