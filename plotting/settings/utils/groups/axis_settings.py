@@ -6,10 +6,10 @@ from lets_plot import *
 
 class AxisSettings(BaseSettingsGroup):
     x_axis_label: Label = Field(...,
-        title="X-Axis Label",
+        alias="X-Axis Label",
     )
     y_axis_label: Label = Field(...,
-        title="Y-Axis Label",
+        alias="Y-Axis Label",
     )
     y_axis_log2: bool = Field(
         title="Y-Axis Logarithmic Scale",
