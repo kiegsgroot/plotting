@@ -7,11 +7,9 @@ from lets_plot import *
 class AxisSettings(BaseSettingsGroup):
     x_axis_label: Label = Field(
         title="X-Axis Label",
-        default={"text": None, "font_size": 10},
     )
     y_axis_label: Label = Field(
         title="Y-Axis Label",
-        default={"text": None, "font_size": 10}, 
     )
     y_axis_log2: bool = Field(
         title="Y-Axis Logarithmic Scale",

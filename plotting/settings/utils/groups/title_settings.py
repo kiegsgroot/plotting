@@ -7,15 +7,12 @@ from lets_plot import *
 class TitleSettings(BaseSettingsGroup):
     title: JustifiableLabel = Field(
         title="Title",
-        default={"text": None, "font_size": 15, "justify": "0.5"}
     )
     subtitle: JustifiableLabel = Field(
         title="Subtitle",
-        default={"text": None, "font_size": 15, "justify": "0.5"}
     )
     caption: JustifiableLabel = Field(
         title="Caption",
-        default={"text": None, "font_size": 15, "justify": "1"}
     )
 
     def apply(self, plot):
