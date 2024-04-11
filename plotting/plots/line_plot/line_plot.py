@@ -1,5 +1,5 @@
 from lets_plot import *
-from plotting_backend.plotting.plots.base_plot import BasePlot
+from plotting.plots.base_plot import BasePlot
 from .line_types import (
     InvestmentGrowthLine,
     VolatilityLine,

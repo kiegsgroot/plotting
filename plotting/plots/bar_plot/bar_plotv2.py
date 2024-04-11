@@ -1,7 +1,7 @@
 from lets_plot import *
 from pandas.core.api import DataFrame as DataFrame
 from ..base_plot import BasePlot
-from plotting_backend.common.contrasting_colors import contrasting_colors
+from plotting.common.contrasting_colors import contrasting_colors
 from typing import Literal 
 
 class BarPlot(BasePlot):
