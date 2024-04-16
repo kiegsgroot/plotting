@@ -2,6 +2,7 @@ from data_handling import LoadData
 from datetime import datetime
 import pandas as pd
 from .base_data_loader import BaseDataLoader
+import os
 
 class AdamDataLoader(BaseDataLoader):
 
@@ -30,3 +31,13 @@ class AdamDataLoader(BaseDataLoader):
         )
 
         return plot_data
+    
+    @staticmethod
+    def list_tickers() -> list[str]:
+        data_loc = "./Data"
+        data_points = []
+        for filename in os.listdir(data_loc):
+            if os.path.isfile(os.path.join(data_loc, filename)):
+                basename = os.path.splitext(filename)[0]
+                data_points.append(basename)
+        return data_points

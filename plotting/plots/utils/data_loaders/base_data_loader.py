@@ -13,9 +13,16 @@ class BaseDataLoader(ABC):
     def process_data(self, data: pd.DataFrame) -> pd.DataFrame:
         return NotImplementedError()
     
+    @abstractmethod
+    @staticmethod
+    def list_tickers() -> list[str]:
+        return NotImplementedError()
+    
 
     def run(self, start_date: str, end_date: str) -> pd.DataFrame:
         data = self.download(start_date, end_date)
         processed_data = self.process_data(data)
         return processed_data
+    
+    
 
