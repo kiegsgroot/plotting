@@ -9,7 +9,6 @@ dl = DataDownloader()
 class AdamDataLoader(BaseDataLoader):
     def __init__(self, line) -> None:
         super().__init__(line)
-        dl.run()
 
     def download(self, start_date: str, end_date: str) -> pd.DataFrame:
         symbols = [asset.symbol for asset in self.line.assets]
