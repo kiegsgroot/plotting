@@ -12,4 +12,5 @@ class Theme(BaseModel):
         with pkg_resources.path("plotting.themes", "color_themes.yaml") as path:
             colors_dict = load_yaml_as_dict(str(path))
         print(colors_dict)
+        print(self.theme_name)
         self.colors = colors_dict.get(self.theme_name, [])
