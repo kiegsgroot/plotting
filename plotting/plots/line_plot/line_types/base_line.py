@@ -3,9 +3,13 @@ from abc import ABC, abstractmethod
 from pydantic import BaseModel, Field
 from ...utils.data_loaders.adam_data_loader import AdamDataLoader
 from ...utils.data_loaders.base_data_loader import BaseDataLoader
+from typing import Literal
+
+default_data_loader = AdamDataLoader
+
 
 class Asset(BaseModel, ABC):
-    symbol: str = Field(..., examples=['F-CL'])
+    symbol: str = Field(..., examples=default_data_loader.list_tickers())
     weight: int = Field(default=100)
 
 class BaseLine(BaseModel):
@@ -28,7 +32,7 @@ class BaseLine(BaseModel):
         self,
         start_date: str, 
         end_date: str, 
-        data_loader: BaseDataLoader = AdamDataLoader
+        data_loader: BaseDataLoader = default_data_loader
     ) -> None:
         data_loader = data_loader(self)
         data = data_loader.run(start_date, end_date)
