@@ -13,8 +13,8 @@ default_data_loader = AdamDataLoader
 
 
 class Asset(BaseModel, ABC):
-    symbol: str = Field(..., examples=default_data_loader.list_tickers())
-    weight: int = Field(default=100)
+    symbol: str = Field(..., examples=default_data_loader.list_tickers(), alias="name")
+    weight: int = Field(default=100, alias="value")
 
 class BaseLine(BaseModel):
     _data_loader: BaseDataLoader = default_data_loader
