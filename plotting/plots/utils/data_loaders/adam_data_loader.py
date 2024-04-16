@@ -41,8 +41,12 @@ class AdamDataLoader(BaseDataLoader):
     def list_tickers() -> list[str]:
         data_loc = "./Data"
         data_points = []
+        if not os.listdir(data_loc):
+            print("Downloading Data...")
+            dl.run()
         for filename in os.listdir(data_loc):
             if os.path.isfile(os.path.join(data_loc, filename)):
                 basename = os.path.splitext(filename)[0]
                 data_points.append(basename)
+        
         return data_points
