@@ -32,8 +32,7 @@ class AdamDataLoader(BaseDataLoader):
 
         return plot_data
     
-    @staticmethod
-    def list_tickers() -> list[str]:
+    def list_tickers(self) -> list[str]:
         data_loc = "./Data"
         data_points = []
         for filename in os.listdir(data_loc):

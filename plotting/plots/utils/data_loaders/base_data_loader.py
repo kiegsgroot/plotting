@@ -14,8 +14,7 @@ class BaseDataLoader(ABC):
         return NotImplementedError()
     
     @abstractmethod
-    @staticmethod
-    def list_tickers() -> list[str]:
+    def list_tickers(self) -> list[str]:
         return NotImplementedError()
     
 
