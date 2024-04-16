@@ -3,7 +3,6 @@ from abc import ABC, abstractmethod
 from pydantic import BaseModel, Field
 from ...utils.data_loaders.adam_data_loader import AdamDataLoader
 from ...utils.data_loaders.base_data_loader import BaseDataLoader
-from typing import Literal
 
 default_data_loader = AdamDataLoader
 
@@ -13,14 +12,13 @@ class Asset(BaseModel, ABC):
     weight: int = Field(default=100)
 
 class BaseLine(BaseModel):
-    _data_loader: BaseDataLoader = default_data_loader()
+    _data_loader: BaseDataLoader = default_data_loader
     _data: pd.DataFrame = None 
 
     assets: list[Asset] = Field(...)
     name: str = Field(default="New Line")
     id: str = Field(...)
     color: str = Field(default="#000000", pattern=r"^#(?:[0-9a-fA-F]{3}){1,2}$")
-
 
     class Config:
         arbitrary_types_allowed = True 
@@ -36,7 +34,7 @@ class BaseLine(BaseModel):
         start_date: str, 
         end_date: str, 
     ) -> None:
-        data = self._data_loader.run(start_date, end_date)
+        data = self._data_loader(self).run(start_date, end_date)
         self._data = data
 
     @abstractmethod
@@ -47,7 +45,6 @@ class BaseLine(BaseModel):
         self,
         start_date: str, 
         end_date: str, 
-        data_loader: BaseDataLoader = AdamDataLoader
     ) -> None:
-        self.download_data(start_date, end_date, data_loader)
+        self.download_data(start_date, end_date)
         self.transform_data()

@@ -22,6 +22,3 @@ class BaseDataLoader(ABC):
         data = self.download(start_date, end_date)
         processed_data = self.process_data(data)
         return processed_data
-    
-    
-
