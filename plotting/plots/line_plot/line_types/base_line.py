@@ -3,6 +3,11 @@ from abc import ABC, abstractmethod
 from pydantic import BaseModel, Field
 from ...utils.data_loaders.adam_data_loader import AdamDataLoader
 from ...utils.data_loaders.base_data_loader import BaseDataLoader
+from ....common.functions.load_yaml import load_yaml_as_dict
+import importlib.resources as pkg_resources
+
+with pkg_resources.path("plotting.themes", "color_themes.yaml") as path:
+    color_themes_path = str(path)
 
 default_data_loader = AdamDataLoader
 
@@ -16,10 +21,17 @@ class BaseLine(BaseModel):
     _data: pd.DataFrame = None 
 
     assets: list[Asset] = Field(...)
-    name: str = Field(default="New Line")
+    name: str = Field(
+        default="New Line"
+    )
     id: str = Field(...)
-    color: str = Field(default="#000000", pattern=r"^#(?:[0-9a-fA-F]{3}){1,2}$")
-
+    color: str = Field(
+        default="#000000", 
+        pattern=r"^#(?:[0-9a-fA-F]{3}){1,2}$", 
+        json_schema_extra={
+            "options_by_theme": load_yaml_as_dict(str(pkg_resources.path("plotting.themes", "color_themes.yaml")))
+        }
+    )
     class Config:
         arbitrary_types_allowed = True 
 
