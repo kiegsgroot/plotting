@@ -3,7 +3,7 @@ from .base_line import BaseLine
 from typing import Literal
 
 class MovingAverageLine(BaseLine):
-    line_type: Literal['moving_average'] = 'moving_average'
+    line_type: Literal['Moving Average'] = 'Moving Average'
 
     def transform_data(self) -> None:
         self._data['Price'] = self._data['Price'].astype(float)

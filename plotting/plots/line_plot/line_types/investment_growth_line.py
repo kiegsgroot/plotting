@@ -3,7 +3,7 @@ from .base_line import BaseLine
 from typing import Literal
 
 class InvestmentGrowthLine(BaseLine):
-    line_type: Literal['investment_growth'] = 'investment_growth'
+    line_type: Literal['Investment Growth'] = 'Investment Growth'
     
     def transform_data(self) -> None:
         self._data['Price'] = self._data['Price'].astype(float)

@@ -3,7 +3,7 @@ from .base_line import BaseLine
 from typing import Literal
 
 class VolatilityLine(BaseLine):
-    line_type: Literal['volatility'] = 'volatility'
+    line_type: Literal['Volatility'] = 'Volatility'
 
     def transform_data(self) -> None:
         self._data['Price'] = self._data['Price'].astype(float)
