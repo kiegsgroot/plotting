@@ -9,7 +9,7 @@ class Theme(BaseModel):
 
     def __init__(self, **data):
         super().__init__(**data)
-        with contextlib.suppress(Exception):
-            with pkg_resources.path("plotting.themes", "color_themes.yaml") as path:
-                colors_dict = load_yaml_as_dict(str(path))
-                self.colors = colors_dict.get(self.theme_name, [])
+        with pkg_resources.path("plotting.themes", "color_themes.yaml") as path:
+            colors_dict = load_yaml_as_dict(str(path))
+        print(colors_dict)
+        self.colors = colors_dict.get(self.theme_name, [])
