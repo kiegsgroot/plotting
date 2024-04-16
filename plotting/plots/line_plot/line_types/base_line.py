@@ -5,7 +5,7 @@ from ...utils.data_loaders.adam_data_loader import AdamDataLoader
 from ...utils.data_loaders.base_data_loader import BaseDataLoader
 from typing import Literal
 
-default_data_loader = AdamDataLoader()
+default_data_loader = AdamDataLoader
 
 
 class Asset(BaseModel, ABC):
@@ -13,7 +13,7 @@ class Asset(BaseModel, ABC):
     weight: int = Field(default=100)
 
 class BaseLine(BaseModel):
-    _data_loader: BaseDataLoader = default_data_loader
+    _data_loader: BaseDataLoader = default_data_loader()
     _data: pd.DataFrame = None 
 
     assets: list[Asset] = Field(...)
