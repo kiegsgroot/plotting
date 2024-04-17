@@ -20,6 +20,7 @@ class ChartSettings(BaseSettingsGroup):
     )
 
     def apply(self, plot):
+
         plot += theme(panel_border=element_rect(blank=not self.panel_border))
         if self.figure_height and self.figure_width:
             print("setting size", self.figure_width, self.figure_height)

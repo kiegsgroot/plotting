@@ -22,12 +22,12 @@ class TitleSettings(BaseSettingsGroup):
             caption=self.caption.text,
         )
         plot += theme(
-            plot_title=element_text(size=self.title.size, hjust=self.title.justify),
+            plot_title=element_text(size=self.title.font_size, hjust=self.title.justify),
             plot_subtitle=element_text(
-                size=self.subtitle.size, hjust=self.subtitle.justify
+                size=self.subtitle.font_size, hjust=self.subtitle.justify
             ),
             plot_caption=element_text(
-                size=self.caption.size, hjust=self.caption.justify
+                size=self.caption.font_size, hjust=self.caption.justify
             ),
         )
         return plot
