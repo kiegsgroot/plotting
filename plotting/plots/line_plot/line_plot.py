@@ -10,16 +10,19 @@ from .line_plot_settings import LinePlotSettings
 from typing import Literal, Union
 from pydantic import Field
 from typing_extensions import Annotated
+from ...themes import Theme
 
 Line = Annotated[
     Union[InvestmentGrowthLine, VolatilityLine, PercentChangeLine, MovingAverageLine],
     Field(discriminator="line_type"),
 ]
 
+
 class LinePlot(BasePlot):
     plot_type: Literal["Line Plot"] = "Line Plot"
     lines: list[Line]
     settings: LinePlotSettings
+    theme: Theme
 
     def create_plot(self):
         plot_range = (
