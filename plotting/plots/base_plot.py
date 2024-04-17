@@ -6,12 +6,13 @@ from ..settings.base_plot_settings import BasePlotSettings
 from pydantic import BaseModel, PrivateAttr
 from typing import Optional
 from lets_plot.plot.core import PlotSpec
-
+from ..themes.base_theme import BaseTheme
 
 class BasePlot(BaseModel, ABC):
     _plot: Optional[PlotSpec] = PrivateAttr(default_factory=ggplot)
     settings: BasePlotSettings
-
+    theme: Optional[BaseTheme] = None
+    
     @abstractmethod
     def create_plot(self):
         return NotImplementedError
