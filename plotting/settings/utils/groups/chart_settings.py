@@ -6,12 +6,12 @@ from lets_plot import *
 class ChartSettings(BaseSettingsGroup):
     figure_height: int = Field(
         title="Height", 
-        default=700, 
+        default=600, 
         gt=0,
     )
     figure_width: int = Field(
         title="Width",
-        default=1200,
+        default=900,
         gt=0
     )
     panel_border: bool = Field(
