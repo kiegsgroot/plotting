@@ -1,6 +1,7 @@
 from pydantic import Field, constr
 from .base_settings_group import BaseSettingsGroup
 from datetime import datetime
+
 class DateSettings(BaseSettingsGroup):
     start_date: str = Field(
         default="1980-01-01",

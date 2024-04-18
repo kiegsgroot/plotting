@@ -13,7 +13,7 @@ linetype_mapping = {
 }
 
 class HorizontalLineSettings(BaseSettingsGroup):
-    place_horizontal_line_at: Union[float, None] = Field(
+    place_horizontal_line_at: int = Field(
         title="Placement",
         default=None,
     )
